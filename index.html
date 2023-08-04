@@ -1,55 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CloudFormation Generator</title>
+  <title>CloudFormation Build</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- Add Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-ADw4ePFiE1DakDH9P/5VRxveiWn+yvIZ2xouVvVMyObg5oGy5uPQJBFVqRJhDL6OnK4JFpCOcGynLMenfSNGw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <div class="container">
-    <h1>CloudFormation Generator</h1>
-    <form id="cloudFormationForm">
-      <label for="vpcId">VPC ID:</label>
-      <input type="text" id="vpcId" name="vpcId">
-
-      <label for="groupDescription">Group Description:</label>
-      <input type="text" id="groupDescription" name="groupDescription">
-
-      <h3>Security Group Ingress:</h3>
-      <div id="ingressContainer">
-        <div class="ingressRule">
-          <input type="text" name="ingressIpProtocol[]" placeholder="IpProtocol (e.g., tcp)">
-          <input type="number" name="ingressFromPort[]" placeholder="FromPort">
-          <input type="number" name="ingressToPort[]" placeholder="ToPort">
-          <input type="text" name="ingressCidrIp[]" placeholder="CidrIp">
-          <button type="button" class="removeRule">Remove Ingress Rule</button>
-        </div>
-      </div>
-      <button type="button" id="addIngressRule">Add Ingress Rule</button>
-
-      <h3>Security Group Egress:</h3>
-      <div id="egressContainer">
-        <div class="egressRule">
-          <input type="text" name="egressIpProtocol[]" placeholder="IpProtocol (e.g., tcp)">
-          <input type="number" name="egressFromPort[]" placeholder="FromPort">
-          <input type="number" name="egressToPort[]" placeholder="ToPort">
-          <input type="text" name="egressCidrIp[]" placeholder="CidrIp">
-          <button type="button" class="removeRule">Remove Egress Rule</button>
-        </div>
-      </div>
-      <button type="button" id="addEgressRule">Add Egress Rule</button>
-
-      <h3>Tags:</h3>
-      <div id="tagsContainer">
-        <div class="tag">
-          <input type="text" name="tagKey[]" placeholder="Tag Key">
-          <input type="text" name="tagValue[]" placeholder="Tag Value">
-          <button type="button" class="removeTag">Remove Tag</button>
-        </div>
-      </div>
-      <button type="button" id="addTag">Add Tag</button>
-
-      <button type="submit">Generate CloudFormation</button>
-    </form>
+    <h1>CloudFormation Build</h1>
+    <div class="resource-buttons">
+      <button class="resource-button" id="createVPC">
+        <img src="images/VPC.png" alt="VPC Icon">
+        Create VPC
+      </button>
+      <button class="resource-button" id="createEC2Instance">
+        <img src="images/EC2.png" alt="EC2 Icon">
+        Create EC2 Instance
+      </button>
+      <button class="resource-button" id="createRDSInstance">
+        <img src="images/RDS.png" alt="RDS Icon">
+        Create RDS Instance
+      </button>
+      <button class="resource-button" id="createSecurityGroup">
+        <img src="images/SecurityGroup.png" alt="Security Group Icon">
+        Create Security Group
+      </button>
+      <!-- Add more buttons for other resources as needed -->
+    </div>
     <pre id="cloudFormationOutput"></pre>
   </div>
   <script src="script.js"></script>

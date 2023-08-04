@@ -1,49 +1,87 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-  max-width: 500px;
-  margin: 0 auto;
+  text-align: center;
+  max-width: 800px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #007bff;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
+.resource-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-input {
-  width: 100%;
-  padding: 5px;
+.resource-button {
+  width: 200px; /* 设置按钮的固定宽度 */
+  height: 200px; /* 设置按钮的固定高度 */
+  margin: 10px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 居中按钮内容 */
+  overflow: hidden; /* 添加overflow属性，用于剪裁超出部分 */
+}
+
+.resource-button:hover {
+  background-color: #FFF;
+  transform: translateY(-5px);
+}
+
+.resource-button i {
+  font-size: 36px;
   margin-bottom: 10px;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
+.resource-button img {
+  position: inerit; /* 图片绝对定位 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 图片填充整个按钮区域 */
 }
 
-button.removeRule {
-  background-color: #dc3545;
+/* Set background color for each button */
+#createVPC {
+ /* background-color: #007bff;*/
 }
 
-pre {
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  white-space: pre-wrap;
+#createEC2Instance {
+  /*background-color: #33cc33;*/
+}
+
+#createRDSInstance {
+  /*background-color: #ff6600;*/
+}
+
+#createSecurityGroup {
+  /*background-color: #9933cc;*/
 }
 

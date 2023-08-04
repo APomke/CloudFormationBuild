@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecurityGroup CloudFormation Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>SecurityGroup CloudFormation Generator</h1>
+    <form id="cloudFormationForm">
+      <label for="vpcId">VPC ID:</label>
+      <input type="text" id="vpcId" name="vpcId">
+
+      <label for="groupDescription">Group Description:</label>
+      <input type="text" id="groupDescription" name="groupDescription">
+
+      <h3>Security Group Ingress:</h3>
+      <div id="ingressContainer">
+        <div class="ingressRule">
+          <input type="text" name="ingressIpProtocol[]" placeholder="IpProtocol (e.g., tcp)">
+          <input type="number" name="ingressFromPort[]" placeholder="FromPort">
+          <input type="number" name="ingressToPort[]" placeholder="ToPort">
+          <input type="text" name="ingressCidrIp[]" placeholder="CidrIp">
+          <button type="button" class="removeRule">Remove Ingress Rule</button>
+        </div>
+      </div>
+      <button type="button" id="addIngressRule">Add Ingress Rule</button>
+
+      <h3>Security Group Egress:</h3>
+      <div id="egressContainer">
+        <div class="egressRule">
+          <input type="text" name="egressIpProtocol[]" placeholder="IpProtocol (e.g., tcp)">
+          <input type="number" name="egressFromPort[]" placeholder="FromPort">
+          <input type="number" name="egressToPort[]" placeholder="ToPort">
+          <input type="text" name="egressCidrIp[]" placeholder="CidrIp">
+          <button type="button" class="removeRule">Remove Egress Rule</button>
+        </div>
+      </div>
+      <button type="button" id="addEgressRule">Add Egress Rule</button>
+
+      <h3>Tags:</h3>
+      <div id="tagsContainer">
+        <div class="tag">
+          <input type="text" name="tagKey[]" placeholder="Tag Key">
+          <input type="text" name="tagValue[]" placeholder="Tag Value">
+          <button type="button" class="removeTag">Remove Tag</button>
+        </div>
+      </div>
+      <button type="button" id="addTag">Add Tag</button>
+
+      <button type="submit">Generate CloudFormation</button>
+    </form>
+    <pre id="cloudFormationOutput"></pre>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
