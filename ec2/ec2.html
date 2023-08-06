@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecurityGroup CloudFormation Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>EC2 CloudFormation Generator</h1>
+    <form id="cloudFormationForm">
+      <label for="InstanceType">InstanceType:</label>
+      <select id="InstanceType" name="InstanceType">
+        <option value="t2.micro">t2.micro</option>
+        <option value="t2.small">t2.small</option>
+        <option value="m5.large">m5.large</option>
+        <!-- Add more options for other instance types if needed -->
+      </select>
+      <label for="AMI ID">AMI ID:</label>
+      <input type="text" id="AMI ID" name="AMI ID">
+      <label for="SubnetId">SubnetId:</label>
+      <input type="text" id="SubnetId" name="SubnetId">
+      <label for="SubnetId">SecurityGroupId:</label>
+      <input type="text" id="SecurityGroupId" name="SecurityGroupId">
+      <label for="KeyName">KeyName:</label>
+      <input type="text" id="KeyName" name="KeyName">
+      <label for="IamInstanceProfile">RoleName:</label>
+      <input type="text" id="RoleName" name="RoleName">
+      <label for="VolumeSize">VolumeSize:</label>
+      <input type="text" id="VolumeSize" name="VolumeSize">
+      <button type="submit">Generate CloudFormation</button> 
+    </form>
+    <pre id="cloudFormationOutput"></pre>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
