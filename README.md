@@ -1,4 +1,4 @@
-一个通过图形化界面配置创建AWS的Cloudformation的网站工具，目前只支持创建单个资源，SecurityGroup
+一个通过图形化界面配置创建AWS的Cloudformation的网站工具，目前只支持创建资源，SecurityGroup,ec2
 
 
 
