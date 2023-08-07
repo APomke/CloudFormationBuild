@@ -1,3 +1,30 @@
+
+/* 全局样式 */
+* {
+  box-sizing: border-box;
+}
+
+/* 下拉框的样式 */
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  appearance: none; /* 去除默认样式 */
+}
+
+/* 输入框的样式 */
+input {
+  width: 100%;
+  padding: 8px; /* 调整与下拉框相同的内边距 */
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
 body {
   font-family: "Arial", sans-serif;
   line-height: 1.6;
@@ -23,15 +50,6 @@ label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border-color 0.3s;
 }
 
 input:focus {
@@ -61,3 +79,21 @@ pre {
   white-space: pre-wrap;
 }
 
+
+/* Styling for the label */
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Styling for the select options */
+select option {
+  padding: 8px;
+}
+
+/* Styling for the select when focused or hovered */
+select:focus,
+select:hover {
+  border-color: #007bff;
+}

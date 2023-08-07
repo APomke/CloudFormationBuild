@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lambda CloudFormation Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Lambda CloudFormation Generator</h1>
+        <form id="cloudFormationForm">
+            <label for="FunctionName">FunctionName:</label>
+            <input type="text" id="FunctionName" name="FunctionName">
+
+            <label for="Runtime">Runtime:</label>
+            <select id="Runtime" name="Runtime">
+                <option value="python3.9">python3.9</option>
+                <option value="python3.8">python3.8</option>
+                <option value="python3.7">python3.7</option>
+                <!-- Add more options for other instance types if needed -->
+            </select>
+
+            <label for="Role">RoleArn:</label>
+            <input type="text" id="Role" name="Role">
+
+            <label for="MemorySize">MemorySize:</label>
+            <input type="text" id="MemorySize" name="MemorySize">
+
+            <label for="Timeout">Timeout:</label>
+            <input type="text" id="Timeout" name="Timeout">
+
+            <div class="code-box">
+                <label for="InlineCode">InlineCode:</label>
+                <textarea id="InlineCode" name="InlineCode" rows="4"></textarea>
+            </div>
+
+
+
+            <button type="submit">Generate CloudFormation</button>
+        </form>
+        <pre id="cloudFormationOutput"></pre>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
