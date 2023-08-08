@@ -3,42 +3,48 @@ const output = document.getElementById('cloudFormationOutput');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
-  const InstanceType  = form.elements['InstanceType'].value.trim();
-  const AMI_ID = form.elements['AMI ID'].value.trim();
-  const SubnetId = form.elements['SubnetId'].value.trim();
-  const SecurityGroupId = form.elements['SecurityGroupId'].value.trim();
-  const KeyName = form.elements['KeyName'].value.trim();
-  const RoleName = form.elements['RoleName'].value.trim();
-  const VolumeSize = form.elements['VolumeSize'].value.trim();
+  const FunctionName  = form.elements['FunctionName'].value.trim();
+  const Runtime = form.elements['Runtime'].value.trim();
+  const Role = form.elements['Role'].value.trim();
+  const MemorySize = form.elements['MemorySize'].value.trim();
+  const Timeout = form.elements['Timeout'].value.trim();
+  const InlineCode = form.elements['InlineCode'].value.trim();
+  // const Handler = form.elements['Handler'].value.trim();
+  const Description = form.elements['Description'].value.trim();
 
   const cloudFormationTemplate = generateCloudFormationTemplate(
-    InstanceType,
-    AMI_ID,
-    SubnetId,
-    SecurityGroupId,
-    KeyName,
-    RoleName,
-    VolumeSize
+    FunctionName,
+    Description,
+    Runtime,
+    Role,
+    MemorySize,
+    Timeout,
+    // Handler,
+    InlineCode
   );
   output.textContent = cloudFormationTemplate;
 });
 
-function generateCloudFormationTemplate(InstanceType, AMI_ID, SubnetId, SecurityGroupId, KeyName,RoleName,VolumeSize) {
-
+function generateCloudFormationTemplate(FunctionName, Description, Runtime, Role, MemorySize, Timeout, InlineCode) {
   return `AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
 Resources:
-  EC2Instance:
-    Type: AWS::EC2::Instance
+  LambdaFunction:
+    Type: AWS::Serverless::Function
     Properties:
-      InstanceType: ${InstanceType}
-      ImageId: ${AMI_ID}
-      SubnetId: ${SubnetId}
-      SecurityGroupIds:
-        - ${SecurityGroupId}
-      KeyName: ${KeyName}
-      IamInstanceProfile: ${RoleName}
-      BlockDeviceMappings:
-        - DeviceName: /dev/xvda
-          Ebs:
-            VolumeSize: ${VolumeSize}`;
+      Handler: index.lambda_handler
+      Description: ${Description}
+      Runtime: ${Runtime}
+      InlineCode: |
+${addIndentation(InlineCode, 8)}      Role: ${Role}
+      MemorySize: ${MemorySize}
+      Timeout: ${Timeout}
+      FunctionName: ${FunctionName}`;
+}
+
+function addIndentation(text, spaces) {
+  return text
+    .split('\n')
+    .map(line => ' '.repeat(spaces) + line)
+    .join('\n');
 }
