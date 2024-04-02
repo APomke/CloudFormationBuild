@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>RDS CloudFormation Generator</title>
+</head>
+
+<body>
+  <h1>RDS CloudFormation Generator</h1>
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <div class="container">
+    <form id="rdsForm">
+      <label for="DBInstanceIdentifier">DB Instance Identifier:</label>
+      <input type="text" id="DBInstanceIdentifier" name="DBInstanceIdentifier"><br><br>
+
+      <label for="DBName">DB Name:</label>
+      <input type="text" id="DBName" name="DBName"><br><br>
+
+
+      <label for="Engine">Engine:</label>
+      <select id="Engine" name="Engine">
+        <option value="mysql">MySQL</option>
+        <option value="postgres">PostgreSQL</option>
+      </select><br><br>
+
+      <!-- <label for="EngineVersion">Engine Version:</label>
+    <select id="EngineVersion" name="EngineVersion">
+      <option value="5.7">5.7</option>
+      <option value="8.0">8.0</option>
+      添加其他引擎版本选项 -->
+      <!-- </select><br><br> -->
+
+      <label for="MasterUsername">Master Username:</label>
+      <input type="text" id="MasterUsername" name="MasterUsername"><br><br>
+
+      <label for="MasterUserPassword">Master User Password:</label>
+      <input type="password" id="MasterUserPassword" name="MasterUserPassword"><br><br>
+
+      <label for="AllocatedStorage">Allocated Storage:</label>
+      <input type="number" id="AllocatedStorage" name="AllocatedStorage"><br><br>
+
+      <label for="InstanceClass">Instance Class:</label>
+      <select id="InstanceClass" name="InstanceClass">
+        <option value="db.t2.micro">db.t2.micro</option>
+        <option value="db.t3.micro">db.t3.micro</option>
+        <option value="db.t3.small">db.t3.small</option>
+        <!-- 添加其他实例类型选项 -->
+      </select><br><br>
+
+      <label for="PubliclyAccessible">Publicly Accessible:</label>
+      <input type="checkbox" id="PubliclyAccessible" name="PubliclyAccessible"><br><br>
+
+      <label for="MultiAZ">Multi-AZ:</label>
+      <input type="checkbox" id="MultiAZ" name="MultiAZ"><br><br>
+
+      <label for="BackupRetentionPeriod">Backup Retention Period:</label>
+      <input type="number" id="BackupRetentionPeriod" name="BackupRetentionPeriod"><br><br>
+
+      <label for="VPCSecurityGroupId">VPC Security Group ID:</label>
+      <input type="text" id="VPCSecurityGroupId" name="VPCSecurityGroupId"><br><br>
+
+      <label for="DBSubnetGroupName">DB Subnet Group Name:</label>
+      <input type="text" id="DBSubnetGroupName" name="DBSubnetGroupName"><br><br>
+
+      <label for="StorageType">Storage Type:</label>
+      <select id="StorageType" name="StorageType">
+        <option value="gp3">General Purpose SSD (gp3)</option>
+        <option value="io1">Provisioned IOPS SSD (io1)</option>
+        <!-- 添加其他存储类型选项 -->
+      </select><br><br>
+
+      <button type="submit">Generate CloudFormation</button>
+    </form>
+
+    <h2>Generated CloudFormation Template:</h2>
+    <pre id="rdsCloudFormationOutput"></pre>
+  </div>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
